@@ -39,3 +39,7 @@ chmod +x ./development/show.sh
 ```
 ./development/show.sh
 ```
+
+# Architectural Decision Log
+
+See [here](doc/index.md)
