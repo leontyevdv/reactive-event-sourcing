@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group 'engineering.oddsystems'
+version '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.vavr', name: 'vavr', version: '1.0.0-alpha-4'
+
+    implementation group: 'com.typesafe.akka', name: 'akka-actor-typed_2.13', version: '2.6.16'
+    implementation group: 'com.typesafe.akka', name: 'akka-persistence-typed_2.13', version: '2.6.16'
+    implementation group: 'com.lightbend.akka', name: 'akka-persistence-jdbc_2.13', version: '5.0.4'
+    implementation group: 'com.typesafe.akka', name: 'akka-persistence-cassandra_2.13', version: '1.0.5'
+    implementation group: 'com.typesafe.akka', name: 'akka-cluster-typed_2.13', version: '2.6.16'
+    implementation group: 'com.typesafe.akka', name: 'akka-cluster-sharding-typed_2.13', version: '2.6.16'
+    implementation group: 'com.typesafe.akka', name: 'akka-slf4j_2.13', version: '2.6.16'
+    implementation group: 'com.typesafe.slick', name: 'slick_2.13', version: '3.4.0-M1'
+    implementation group: 'com.typesafe.slick', name: 'slick-hikaricp_2.13', version: '3.4.0-M1'
+
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.1'
+    testImplementation group: 'org.assertj', name: 'assertj-vavr', version: '0.4.2'
+
+    testImplementation group: 'com.typesafe.akka', name: 'akka-actor-testkit-typed_2.13', version: '2.6.16'
+    implementation group: 'com.typesafe.akka', name: 'akka-persistence-testkit_2.13', version: '2.6.16'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+
+    testImplementation group: 'com.tngtech.archunit', name: 'archunit', version: '0.23.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs += "--enable-preview"
+    // options.compilerArgs += "-Xlint:preview"
+    options.release.set(17)
+}
+
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec) {
+    jvmArgs += '--enable-preview'
+}
+
+
