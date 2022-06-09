@@ -1,4 +1,4 @@
-package engineering.oddsystems.api;
+package engineering.oddsystems.cinema.reservation.api;
 
 import engineering.oddsystems.cinema.reservation.domain.Show;
 import java.util.List;

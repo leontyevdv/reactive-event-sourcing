@@ -1,4 +1,4 @@
-package engineering.oddsystems.api;
+package engineering.oddsystems.cinema.reservation.api;
 
 import static org.springframework.http.ResponseEntity.accepted;
 import static org.springframework.http.ResponseEntity.badRequest;

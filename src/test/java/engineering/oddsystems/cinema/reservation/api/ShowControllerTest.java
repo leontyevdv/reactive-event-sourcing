@@ -1,7 +1,7 @@
-package engineering.oddsystems.api;
+package engineering.oddsystems.cinema.reservation.api;
 
-import static engineering.oddsystems.api.Action.CANCEL_RESERVATION;
-import static engineering.oddsystems.api.Action.RESERVE;
+import static engineering.oddsystems.cinema.reservation.api.Action.CANCEL_RESERVATION;
+import static engineering.oddsystems.cinema.reservation.api.Action.RESERVE;
 import static engineering.oddsystems.cinema.reservation.domain.DomainGenerators.randomSeatNumber;
 import static engineering.oddsystems.cinema.reservation.domain.DomainGenerators.randomShowId;
 
