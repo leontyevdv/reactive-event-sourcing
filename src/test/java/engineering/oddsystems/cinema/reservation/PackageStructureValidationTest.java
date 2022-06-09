@@ -4,15 +4,15 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
-import com.tngtech.archunit.core.importer.ImportOption;
+import com.tngtech.archunit.core.importer.ImportOption.DoNotIncludeTests;
 import com.tngtech.archunit.lang.ArchRule;
 import org.junit.jupiter.api.Test;
 
 public class PackageStructureValidationTest {
 
-  private final ImportOption ignoreTests = location -> !location.contains("/test-classes");
-  private final JavaClasses classes = new ClassFileImporter().withImportOption(ignoreTests)
-      .importPackages("workshop.cinema");
+  private final JavaClasses classes = new ClassFileImporter()
+      .withImportOption(new DoNotIncludeTests())
+      .importPackages("engineering.oddsystems");
 
   private final String baseModule = "..base..";
   private final String reservationModule = "..reservation..";
